@@ -51,5 +51,19 @@ export function Gameboard() {
     },
   ];
 
-  return { getBoard };
+  const placeShips = () => {
+    const board = getBoard();
+    fleet.forEach((boat) => {
+      const shipLength = boat.ship.length;
+      for (let i = 0; i < shipLength; i++) {
+        if (boat.direction === 'horizontal') {
+          board[boat.coordinates[0]][boat.coordinates[1] + i] = boat.id;
+        } else {
+          board[boat.coordinates[0] + i][boat.coordinates[1]] = boat.id;
+        }
+      }
+    });
+  };
+
+  return { getBoard, placeShips };
 }
