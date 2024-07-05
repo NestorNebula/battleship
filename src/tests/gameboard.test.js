@@ -19,4 +19,18 @@ describe('Gameboard', () => {
     expect(board[3][1]).toBe(3);
     expect(board[4][0]).toBe(4);
   });
+
+  describe('receiveAttack', () => {
+    test('return hit if the attack hits a ship', () => {
+      expect(gameboard.receiveAttack([0, 1])).toMatch('hit');
+    });
+
+    test("return miss if the attack didn't hit a ship", () => {
+      expect(gameboard.receiveAttack([8, 9])).toMatch('miss');
+    });
+
+    test('return false if the square was already tried', () => {
+      expect(gameboard.receiveAttack([8, 9])).toBeFalsy();
+    });
+  });
 });
