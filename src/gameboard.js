@@ -92,5 +92,9 @@ export function Gameboard() {
     }
   };
 
-  return { getBoard, placeShips, receiveAttack };
+  const fleetSunk = () => {
+    return fleet.every((ship) => ship.ship.isSunk() === true);
+  };
+
+  return { getBoard, placeShips, receiveAttack, fleetSunk };
 }
