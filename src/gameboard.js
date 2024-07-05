@@ -23,26 +23,31 @@ export function Gameboard() {
       ship: new Ship(5),
       coordinates: [0, 0],
       direction: 'horizontal',
+      id: 0,
     },
     {
       ship: new Ship(4),
       coordinates: [1, 0],
       direction: 'horizontal',
+      id: 1,
     },
     {
       ship: new Ship(3),
       coordinates: [2, 0],
       direction: 'horizontal',
+      id: 2,
     },
     {
       ship: new Ship(3),
       coordinates: [3, 0],
       direction: 'horizontal',
+      id: 3,
     },
     {
       ship: new Ship(2),
       coordinates: [4, 0],
       direction: 'horizontal',
+      id: 4,
     },
   ];
 
