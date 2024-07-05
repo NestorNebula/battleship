@@ -57,12 +57,20 @@ export function Gameboard() {
       const shipLength = boat.ship.length;
       for (let i = 0; i < shipLength; i++) {
         if (boat.direction === 'horizontal') {
-          board[boat.coordinates[0]][boat.coordinates[1] + i] = boat.id;
+          placeShip([boat.coordinates[0], boat.coordinates[1] + i], boat.id);
         } else {
-          board[boat.coordinates[0] + i][boat.coordinates[1]] = boat.id;
+          placeShip([boat.coordinates[0] + i, boat.coordinates[1]], boat.id);
         }
       }
     });
+
+    function placeShip(coordinates, id) {
+      if (board[coordinates[0]][coordinates[1]] === null) {
+        board[coordinates[0]][coordinates[1]] = id;
+      } else {
+        throw Error('This square is already taken');
+      }
+    }
   };
 
   return { getBoard, placeShips };
