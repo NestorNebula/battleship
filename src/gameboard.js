@@ -73,5 +73,24 @@ export function Gameboard() {
     }
   };
 
-  return { getBoard, placeShips };
+  const receiveAttack = (coordinates) => {
+    let square = board[coordinates[0]][coordinates[1]];
+    if (square === 'O' || square === 'X') {
+      return false;
+    } else if (square !== null) {
+      const shipId = square;
+      board[coordinates[0]][coordinates[1]] = 'O';
+      fleet[shipId].ship.hit();
+      if (fleet[shipId].ship.isSunk() === true) {
+        return 'sunk';
+      } else {
+        return 'hit';
+      }
+    } else {
+      board[coordinates[0]][coordinates[1]] = 'X';
+      return 'miss';
+    }
+  };
+
+  return { getBoard, placeShips, receiveAttack };
 }
