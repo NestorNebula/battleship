@@ -21,27 +21,27 @@ export function Gameboard() {
   const fleet = [
     {
       ship: new Ship(5),
-      coordinates: [0][0],
+      coordinates: [0, 0],
       direction: 'horizontal',
     },
     {
       ship: new Ship(4),
-      coordinates: [1][0],
+      coordinates: [1, 0],
       direction: 'horizontal',
     },
     {
       ship: new Ship(3),
-      coordinates: [2][0],
+      coordinates: [2, 0],
       direction: 'horizontal',
     },
     {
       ship: new Ship(3),
-      coordinates: [3][0],
+      coordinates: [3, 0],
       direction: 'horizontal',
     },
     {
       ship: new Ship(2),
-      coordinates: [4][0],
+      coordinates: [4, 0],
       direction: 'horizontal',
     },
   ];
