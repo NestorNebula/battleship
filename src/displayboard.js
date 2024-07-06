@@ -48,11 +48,11 @@ export function Displayboard() {
   };
 
   const displaySquare = (element, square, boardType) => {
-    if (square === null) {
+    if (square.status === null && square.ship === null) {
       return;
-    } else if (square === 'X') {
+    } else if (square.status === 'miss') {
       element.classList.add('missedsquare');
-    } else if (square === 'O') {
+    } else if (square.status === 'hit') {
       element.classList.add('hitsquare');
       if (boardType === 'player') {
         element.classList.add('shipsquare');

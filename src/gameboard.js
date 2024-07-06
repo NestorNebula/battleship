@@ -1,4 +1,5 @@
 import { Ship } from './ship';
+import { Square } from './square';
 
 export function Gameboard() {
   const createBoard = () => {
@@ -7,7 +8,7 @@ export function Gameboard() {
     for (let i = 0; i < size; i++) {
       const row = [];
       for (let j = 0; j < size; j++) {
-        row[j] = null;
+        row[j] = new Square();
       }
       board[i] = row;
     }
@@ -67,23 +68,25 @@ export function Gameboard() {
       }
       if (squaresEmpty(boatCoordinates)) {
         boatCoordinates.forEach((square) => {
-          board[square[0]][square[1]] = boat.id;
+          board[square[0]][square[1]].ship = boat.id;
         });
       }
     });
   };
 
   const squaresEmpty = (coordinates) => {
-    return coordinates.every((square) => board[square[0]][square[1]] === null);
+    return coordinates.every(
+      (square) => board[square[0]][square[1]].ship === null
+    );
   };
 
   const receiveAttack = (coordinates) => {
     let square = board[coordinates[0]][coordinates[1]];
-    if (square === 'O' || square === 'X') {
+    if (square.status === 'hit' || square.status === 'miss') {
       return false;
-    } else if (square !== null) {
-      const shipId = square;
-      board[coordinates[0]][coordinates[1]] = 'O';
+    } else if (square.ship !== null) {
+      const shipId = square.ship;
+      board[coordinates[0]][coordinates[1]].status = 'hit';
       fleet[shipId].ship.hit();
       if (fleet[shipId].ship.isSunk() === true) {
         return 'sunk';
@@ -91,7 +94,7 @@ export function Gameboard() {
         return 'hit';
       }
     } else {
-      board[coordinates[0]][coordinates[1]] = 'X';
+      board[coordinates[0]][coordinates[1]].status = 'miss';
       return 'miss';
     }
   };
