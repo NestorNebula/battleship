@@ -22,10 +22,26 @@ export function Game() {
       square.addEventListener('click', () => {
         const coordinates = square.id.split('-');
         const result = computer.board.receiveAttack(coordinates);
+        displAttackResult(result);
         display.opponentBoard(computer.board.getBoard());
         waitMove();
       });
     });
+  };
+
+  const displAttackResult = (attackresult) => {
+    const result = document.querySelector('.result');
+    if (attackresult === 'hit') {
+      result.textContent = 'Hit !';
+      return;
+    }
+    if (attackresult === 'miss') {
+      result.textContent = 'Missed !';
+      return;
+    }
+    if (attackresult === 'sunk') {
+      result.textContent = 'Ship sunk!';
+    }
   };
 
   startGame();
