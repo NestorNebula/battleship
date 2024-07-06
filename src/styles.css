@@ -54,11 +54,24 @@ body {
   height: 5rem;
   width: 5rem;
   background-color: white;
+  margin: -1px -1px 0 0;
   border: 1px solid black;
+  padding: 0;
 }
 
 .shipsquare {
   background-color: lightgray;
+  border: none;
+}
+
+.vshiproot,
+.horizontal {
+  border-top: 1px solid black;
+}
+
+.shiproot,
+.vertical {
+  border-left: 1px solid black;
 }
 
 .missedsquare::after {
