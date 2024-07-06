@@ -8,7 +8,7 @@ export function Gameboard() {
     for (let i = 0; i < size; i++) {
       const row = [];
       for (let j = 0; j < size; j++) {
-        row[j] = new Square();
+        row[j] = new Square([i, j]);
       }
       board[i] = row;
     }
@@ -63,7 +63,7 @@ export function Gameboard() {
         if (boat.direction === 'horizontal') {
           boatCoordinates.push([boat.coordinates[0], boat.coordinates[1] + i]);
         } else {
-          boatCoordinates.push([boat.coordinates[0], boat.coordinates[1] + i]);
+          boatCoordinates.push([boat.coordinates[0] + i, boat.coordinates[1]]);
         }
       }
       if (squaresEmpty(boatCoordinates)) {

@@ -7,6 +7,7 @@ export function Game() {
   const display = Displayboard();
 
   player.board.placeShips();
-  display.playerBoard(player.board.getBoard());
+  const playerFleet = player.board.getFleet();
+  display.playerBoard(player.board.getBoard(), playerFleet);
   display.opponentBoard(computer.board.getBoard());
 }

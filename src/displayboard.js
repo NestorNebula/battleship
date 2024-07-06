@@ -1,5 +1,5 @@
 export function Displayboard() {
-  const playerBoard = (board) => {
+  const playerBoard = (board, fleet) => {
     const domBoard = document.querySelector('.board');
     let rows = 0;
     board.forEach((row) => {
@@ -14,7 +14,7 @@ export function Displayboard() {
         const domSquare = document.createElement('button');
         domSquare.classList.add('square');
         domSquare.setAttribute('id', `${rows}-${squares}`);
-        displaySquare(domSquare, square, 'player');
+        displaySquare(domSquare, square, 'player', fleet);
         domRow.appendChild(domSquare);
         squares += 1;
       });
@@ -47,7 +47,7 @@ export function Displayboard() {
     });
   };
 
-  const displaySquare = (element, square, boardType) => {
+  const displaySquare = (element, square, boardType, fleet) => {
     if (square.status === null && square.ship === null) {
       return;
     } else if (square.status === 'miss') {
@@ -55,10 +55,31 @@ export function Displayboard() {
     } else if (square.status === 'hit') {
       element.classList.add('hitsquare');
       if (boardType === 'player') {
-        element.classList.add('shipsquare');
+        displayShipSquare(element, square, fleet);
       }
     } else if (boardType === 'player') {
-      element.classList.add('shipsquare');
+      displayShipSquare(element, square, fleet);
+    }
+  };
+
+  const displayShipSquare = (element, square, fleet) => {
+    element.classList.add('shipsquare');
+    if (fleet[square.ship].direction === 'horizontal') {
+      element.classList.add('horizontal');
+      if (
+        fleet[square.ship].coordinates.toString() ===
+        square.coordinates.toString()
+      ) {
+        element.classList.add('shiproot');
+      }
+    } else {
+      element.classList.add('vertical');
+      if (
+        fleet[square.ship].coordinates.toString() ===
+        square.coordinates.toString()
+      ) {
+        element.classList.add('vshiproot');
+      }
     }
   };
 
