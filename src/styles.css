@@ -32,10 +32,21 @@ body {
   display: grid;
 }
 
+.letters {
+  font-size: 1.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.number {
+  font-size: 1.5rem;
+  align-self: center;
+}
+
+.letters,
 .row,
 .opprow {
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
+  grid-template-columns: repeat(11, 1fr);
 }
 
 .square,
@@ -43,13 +54,11 @@ body {
   height: 5rem;
   width: 5rem;
   background-color: white;
-  border: none;
-  outline: 1px solid black;
+  border: 1px solid black;
 }
 
 .shipsquare {
   background-color: lightgray;
-  outline: 1px solid lightgray;
 }
 
 .missedsquare::after {
