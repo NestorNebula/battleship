@@ -5,6 +5,7 @@
 }
 
 body {
+  padding: 1rem;
   display: grid;
 }
 
@@ -13,6 +14,32 @@ body {
 }
 
 .boards {
+  justify-self: center;
+  padding: 2rem;
   display: flex;
   gap: 2rem;
+  text-align: center;
+}
+
+.boardtitle,
+.opptitle {
+  font-size: 1.5rem;
+}
+
+.board,
+.oppboard {
+  padding: 1rem;
+  display: grid;
+}
+
+.row,
+.opprow {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+}
+
+.square,
+.oppsquare {
+  height: 5rem;
+  width: 5rem;
 }
