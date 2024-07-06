@@ -24,6 +24,7 @@ export function Game() {
         const result = computer.board.receiveAttack(coordinates);
         displAttackResult(result);
         display.opponentBoard(computer.board.getBoard());
+        manageComputerTurn();
         waitMove();
       });
     });
@@ -41,6 +42,18 @@ export function Game() {
     }
     if (attackresult === 'sunk') {
       result.textContent = 'Ship sunk!';
+    }
+  };
+
+  const manageComputerTurn = () => {
+    while (true) {
+      const coordinates = computer.randomCoordinates();
+      const result = player.board.receiveAttack(coordinates);
+      if (result !== false) {
+        displAttackResult(result);
+        display.playerBoard(player.board.getBoard(), player.board.getFleet());
+        break;
+      }
     }
   };
 
