@@ -42,4 +42,20 @@ body {
 .oppsquare {
   height: 5rem;
   width: 5rem;
+  background-color: white;
+  border: none;
+  outline: 1px solid black;
+}
+
+.shipsquare {
+  background-color: lightgray;
+  outline: 1px solid lightgray;
+}
+
+.missedsquare::after {
+  content: 'X';
+}
+
+.hitsquare::after {
+  content: 'O';
 }
