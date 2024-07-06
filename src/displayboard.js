@@ -6,6 +6,10 @@ export function Displayboard() {
       let squares = 0;
       const domRow = document.createElement('div');
       domRow.classList.add('row');
+      const rowNumber = document.createElement('div');
+      rowNumber.classList.add('number');
+      rowNumber.textContent = rows + 1;
+      domRow.appendChild(rowNumber);
       row.forEach((square) => {
         const domSquare = document.createElement('button');
         domSquare.classList.add('square');
@@ -26,6 +30,10 @@ export function Displayboard() {
       let squares = 0;
       const domRow = document.createElement('div');
       domRow.classList.add('opprow');
+      const rowNumber = document.createElement('div');
+      rowNumber.classList.add('number');
+      rowNumber.textContent = rows + 1;
+      domRow.appendChild(rowNumber);
       row.forEach((square) => {
         const domSquare = document.createElement('button');
         domSquare.classList.add('oppsquare');
