@@ -8,4 +8,5 @@ export function Game() {
 
   player.board.placeShips();
   display.playerBoard(player.board.getBoard());
+  display.opponentBoard(computer.board.getBoard());
 }
