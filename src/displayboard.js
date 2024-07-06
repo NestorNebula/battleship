@@ -10,7 +10,7 @@ export function Displayboard() {
         const domSquare = document.createElement('button');
         domSquare.classList.add('square');
         domSquare.setAttribute('id', `${rows}-${squares}`);
-        domSquare.textContent = square;
+        displaySquare(domSquare, square, 'player');
         domRow.appendChild(domSquare);
         squares += 1;
       });
@@ -30,13 +30,28 @@ export function Displayboard() {
         const domSquare = document.createElement('button');
         domSquare.classList.add('oppsquare');
         domSquare.setAttribute('id', `${rows}-${squares}`);
-        domSquare.textContent = square;
+        displaySquare(domSquare, square, 'opponent');
         domRow.appendChild(domSquare);
         squares += 1;
       });
       domBoard.appendChild(domRow);
       rows += 1;
     });
+  };
+
+  const displaySquare = (element, square, boardType) => {
+    if (square === null) {
+      return;
+    } else if (square === 'X') {
+      element.classList.add('missedsquare');
+    } else if (square === 'O') {
+      element.classList.add('hitsquare');
+      if (boardType === 'player') {
+        element.classList.add('shipsquare');
+      }
+    } else if (boardType === 'player') {
+      element.classList.add('shipsquare');
+    }
   };
 
   return { playerBoard, opponentBoard };
