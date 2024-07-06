@@ -3,12 +3,4 @@ export class Square {
     this.status = null;
     this.ship = null;
   }
-
-  updateStatus(stat) {
-    this.status = stat;
-  }
-
-  updateShip(id) {
-    this.ship = id;
-  }
 }
