@@ -1,9 +1,9 @@
-import { Player } from './player';
+import { Player, Computer } from './player';
 import { Displayboard } from './displayboard';
 
 export function Game() {
   const player = new Player();
-  const computer = new Player();
+  const computer = new Computer();
   const display = Displayboard();
 
   player.board.placeShips();
