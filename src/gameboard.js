@@ -55,22 +55,24 @@ export function Gameboard() {
     const board = getBoard();
     fleet.forEach((boat) => {
       const shipLength = boat.ship.length;
+      const boatCoordinates = [];
       for (let i = 0; i < shipLength; i++) {
         if (boat.direction === 'horizontal') {
-          placeShip([boat.coordinates[0], boat.coordinates[1] + i], boat.id);
+          boatCoordinates.push([boat.coordinates[0], boat.coordinates[1] + i]);
         } else {
-          placeShip([boat.coordinates[0] + i, boat.coordinates[1]], boat.id);
+          boatCoordinates.push([boat.coordinates[0], boat.coordinates[1] + i]);
         }
       }
-    });
-
-    function placeShip(coordinates, id) {
-      if (board[coordinates[0]][coordinates[1]] === null) {
-        board[coordinates[0]][coordinates[1]] = id;
-      } else {
-        throw Error('This square is already taken');
+      if (squaresEmpty(boatCoordinates)) {
+        boatCoordinates.forEach((square) => {
+          board[square[0]][square[1]] = boat.id;
+        });
       }
-    }
+    });
+  };
+
+  const squaresEmpty = (coordinates) => {
+    return coordinates.every((square) => board[square[0]][square[1]] === null);
   };
 
   const receiveAttack = (coordinates) => {
