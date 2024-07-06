@@ -51,6 +51,8 @@ export function Gameboard() {
     },
   ];
 
+  const getFleet = () => fleet;
+
   const placeShips = () => {
     const board = getBoard();
     fleet.forEach((boat) => {
@@ -98,5 +100,5 @@ export function Gameboard() {
     return fleet.every((ship) => ship.ship.isSunk() === true);
   };
 
-  return { getBoard, placeShips, receiveAttack, fleetSunk };
+  return { getBoard, getFleet, placeShips, receiveAttack, fleetSunk };
 }
