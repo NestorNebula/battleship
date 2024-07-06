@@ -1,6 +1,7 @@
 export class Square {
-  constructor() {
+  constructor(coordinates) {
     this.status = null;
     this.ship = null;
+    this.coordinates = coordinates;
   }
 }
