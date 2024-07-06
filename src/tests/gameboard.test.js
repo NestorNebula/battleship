@@ -10,6 +10,12 @@ describe('Gameboard', () => {
     expect(board[7][9]).toBeNull();
   });
 
+  test('getFleet returns ships informations', () => {
+    const fleet = gameboard.getFleet();
+    expect(fleet[0].id).toBe(0);
+    expect(fleet[3].direction).toMatch('horizontal');
+  });
+
   test('place ships on correct coordinates', () => {
     const board = gameboard.getBoard();
     gameboard.placeShips();
