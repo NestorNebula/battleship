@@ -16,6 +16,14 @@ describe('Gameboard', () => {
     expect(fleet[3].direction).toMatch('horizontal');
   });
 
+  test('place ship on correct coordinates', () => {
+    const board = gameboard.getBoard();
+    gameboard.placeShip(1, 0, 'vertical');
+    gameboard.placeShip(3, 9, 'horizontal');
+    expect(board[1][1].ship).toBe(0);
+    expect(board[5][9].ship).toBe(1);
+  });
+
   test('place ships on correct coordinates', () => {
     const board = gameboard.getBoard();
     gameboard.placeShips();
