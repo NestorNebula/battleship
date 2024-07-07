@@ -24,8 +24,16 @@ export function Game() {
         const result = computer.board.receiveAttack(coordinates);
         displAttackResult(result);
         display.opponentBoard(computer.board.getBoard());
-        manageComputerTurn();
-        waitMove();
+        if (computer.board.fleetSunk() === true) {
+          endGame('You');
+        } else {
+          manageComputerTurn();
+          if (player.board.fleetSunk() === true) {
+            endGame('Computer');
+          } else {
+            waitMove();
+          }
+        }
       });
     });
   };
@@ -55,6 +63,11 @@ export function Game() {
         break;
       }
     }
+  };
+
+  const endGame = (winner) => {
+    const result = document.querySelector('.result');
+    result.textContent = `The game is over! ${winner} wins !`;
   };
 
   startGame();
