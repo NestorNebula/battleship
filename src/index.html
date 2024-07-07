@@ -9,6 +9,45 @@
     <header>
       <div class="title">Battleship</div>
     </header>
+    <div class="pregame">
+      <div class="pregametext">
+        Choose your First Ship root coordinates and direction!
+      </div>
+      <form>
+        <label for="col"></label>
+        <select name="col" id="col">
+          <option value="0">A</option>
+          <option value="1">B</option>
+          <option value="2">C</option>
+          <option value="3">D</option>
+          <option value="4">E</option>
+          <option value="5">F</option>
+          <option value="6">G</option>
+          <option value="7">H</option>
+          <option value="8">I</option>
+          <option value="9">J</option>
+        </select>
+        <label for="row"></label>
+        <select name="row" id="row">
+          <option value="0">1</option>
+          <option value="1">2</option>
+          <option value="2">3</option>
+          <option value="3">4</option>
+          <option value="4">5</option>
+          <option value="5">6</option>
+          <option value="6">7</option>
+          <option value="7">8</option>
+          <option value="8">9</option>
+          <option value="9">10</option>
+        </select>
+        <label for="direction"></label>
+        <select name="direction" id="direction">
+          <option value="horizontal">horizontal</option>
+          <option value="vertical">vertical</option>
+        </select>
+        <button type="button">Submit</button>
+      </form>
+    </div>
     <div class="result"></div>
     <div class="boards">
       <div>
