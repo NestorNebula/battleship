@@ -12,8 +12,8 @@ class Computer extends Player {
   }
 
   randomCoordinates() {
-    const a = Math.floor(Math.random() * 9);
-    const b = Math.floor(Math.random() * 9);
+    const a = Math.floor(Math.random() * 10);
+    const b = Math.floor(Math.random() * 10);
     return [a, b];
   }
 }
