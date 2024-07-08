@@ -2,6 +2,7 @@
 
 :root {
   font-size: 62.5%;
+  --squaresize: 5rem;
   --shipborder: 2px solid #0e7490;
 }
 
@@ -50,8 +51,8 @@ section {
 .number {
   display: grid;
   font-size: 1.5rem;
-  width: 5rem;
-  height: 5rem;
+  width: var(--squaresize);
+  height: var(--squaresize);
   align-content: center;
 }
 
@@ -64,8 +65,8 @@ section {
 
 .square,
 .oppsquare {
-  height: 5rem;
-  width: 5rem;
+  height: var(--squaresize);
+  width: var(--squaresize);
   background-color: white;
   border: 0.5px solid black;
   padding: 0;
@@ -112,4 +113,30 @@ section {
 .hidden {
   visibility: hidden;
   opacity: 0;
+}
+
+@media (max-width: 800px) {
+  body {
+    --squaresize: 2.5rem;
+  }
+
+  section {
+    left: 15vw;
+  }
+}
+
+@media (max-width: 1000px) {
+  body {
+    --squaresize: 4.5rem;
+  }
+
+  section {
+    left: 20vw;
+  }
+}
+
+@media (max-width: 1200px) {
+  section {
+    left: 25vw;
+  }
 }
