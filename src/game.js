@@ -86,13 +86,17 @@ export function Game() {
           endGame('Player');
         } else {
           display.hideBoard(computerSection, playerSection);
-          manageComputerTurn();
-          if (player.board.fleetSunk() === true) {
-            endGame('Computer');
-          } else {
-            display.hideBoard(playerSection, computerSection);
-            waitMove();
-          }
+          setTimeout(() => {
+            manageComputerTurn();
+            if (player.board.fleetSunk() === true) {
+              endGame('Computer');
+            } else {
+              setTimeout(() => {
+                display.hideBoard(playerSection, computerSection);
+                waitMove();
+              }, 1000);
+            }
+          }, 1000);
         }
       });
     });
