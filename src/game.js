@@ -17,12 +17,38 @@ export function Game() {
       const col = document.querySelector('#col');
       const row = document.querySelector('#row');
       const direction = document.querySelector('#direction');
-      player.board.placeShip(
+      const result = player.board.placeShip(
         Number(col.value),
         Number(row.value),
         direction.value
       );
-      display.playerBoard(player.board.getBoard(), playerFleet);
+      if (result === true) {
+        display.playerBoard(player.board.getBoard(), playerFleet);
+        const text = document.querySelector('.pregametext');
+        text.textContent = 'Choose your ';
+        let id = Number(text.id);
+        switch (id) {
+          case 1:
+            text.textContent += 'Second Ship (Size: 4)';
+            break;
+          case 2:
+            text.textContent += 'Third Ship (Size: 3)';
+            break;
+          case 3:
+            text.textContent += 'Fourth Ship (Size: 3)';
+            break;
+          case 4:
+            text.textContent += 'Fifth Ship (Size: 2)';
+            break;
+          default:
+            text.textContent += 'First Ship (Size: 5)';
+        }
+        text.textContent += ' root coordinates and direction!';
+        text.id = id += 1;
+        if (id > 5) {
+          startGame();
+        }
+      }
     });
   };
 
