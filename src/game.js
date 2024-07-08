@@ -6,11 +6,25 @@ export function Game() {
   const computer = new Computer();
   const display = Displayboard();
 
-  player.board.placeShips();
   computer.board.placeShips();
   const playerFleet = player.board.getFleet();
   display.playerBoard(player.board.getBoard(), playerFleet);
   display.opponentBoard(computer.board.getBoard());
+
+  const getShipRoot = () => {
+    const btn = document.querySelector('#formbtn');
+    btn.addEventListener('click', () => {
+      const col = document.querySelector('#col');
+      const row = document.querySelector('#row');
+      const direction = document.querySelector('#direction');
+      player.board.placeShip(
+        Number(col.value),
+        Number(row.value),
+        direction.value
+      );
+      display.playerBoard(player.board.getBoard(), playerFleet);
+    });
+  };
 
   const startGame = () => {
     waitMove();
@@ -70,5 +84,5 @@ export function Game() {
     result.textContent = `The game is over! ${winner} wins !`;
   };
 
-  startGame();
+  getShipRoot();
 }
