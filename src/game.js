@@ -7,8 +7,9 @@ export function Game() {
   const display = Displayboard();
 
   const playerFleet = player.board.getFleet();
+  const computerFleet = computer.board.getFleet();
   display.playerBoard(player.board.getBoard(), playerFleet);
-  display.opponentBoard(computer.board.getBoard());
+  display.opponentBoard(computer.board.getBoard(), computerFleet);
 
   const getShipRoot = () => {
     const btn = document.querySelector('#formbtn');
@@ -77,7 +78,7 @@ export function Game() {
         const coordinates = square.id.split('-');
         const result = computer.board.receiveAttack(coordinates);
         displAttackResult(result);
-        display.opponentBoard(computer.board.getBoard());
+        display.opponentBoard(computer.board.getBoard(), computerFleet);
         if (computer.board.fleetSunk() === true) {
           endGame('Player');
         } else {

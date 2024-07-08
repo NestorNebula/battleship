@@ -24,7 +24,7 @@ export function Displayboard() {
     });
   };
 
-  const opponentBoard = (board) => {
+  const opponentBoard = (board, fleet) => {
     const domBoard = document.querySelector('.oppboardsquares');
     domBoard.textContent = '';
     let rows = 0;
@@ -40,7 +40,7 @@ export function Displayboard() {
         const domSquare = document.createElement('button');
         domSquare.classList.add('oppsquare');
         domSquare.setAttribute('id', `${rows}-${squares}`);
-        displaySquare(domSquare, square, 'opponent');
+        displaySquare(domSquare, square, 'opponent', fleet);
         domRow.appendChild(domSquare);
         squares += 1;
       });
@@ -56,7 +56,7 @@ export function Displayboard() {
       element.classList.add('missedsquare');
     } else if (square.status === 'hit') {
       element.classList.add('hitsquare');
-      if (boardType === 'player') {
+      if (boardType === 'player' || fleet[square.ship].ship.isSunk() === true) {
         displayShipSquare(element, square, fleet);
       }
     } else if (boardType === 'player') {
