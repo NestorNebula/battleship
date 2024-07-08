@@ -76,15 +76,17 @@ export function Gameboard() {
     const shipCoordinates = [];
     for (let i = 0; i < fleet[shipId].ship.length; i++) {
       if (direction === 'horizontal') {
+        fleet[shipId].direction = 'horizontal';
         shipCoordinates.push([row, col + i]);
       } else {
+        fleet[shipId].direction = 'vertical';
         shipCoordinates.push([row + i, col]);
       }
     }
     if (squaresEmpty(shipCoordinates)) {
       shipCoordinates.forEach((square) => {
         board[square[0]][square[1]].ship = shipId;
-        fleet[shipId].coordinates += [square];
+        fleet[shipId].coordinates.push(square);
       });
       fleet[shipId].isPlaced = true;
       return true;
