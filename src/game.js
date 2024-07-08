@@ -47,8 +47,6 @@ export function Game() {
         text.textContent += ' root coordinates and direction!';
         text.id = id += 1;
         if (id > 5) {
-          const pregame = document.querySelector('.pregame');
-          pregame.remove();
           computer.board.placeShipsRandomly();
           startGame();
         }
@@ -67,6 +65,8 @@ export function Game() {
   };
 
   const startGame = () => {
+    const pregame = document.querySelector('.pregame');
+    pregame.remove();
     waitMove();
   };
 
