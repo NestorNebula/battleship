@@ -13,7 +13,7 @@ body {
 
 header {
   justify-self: center;
-  font-size: 3rem;
+  font-size: 5rem;
   margin: 1rem;
 }
 
@@ -24,7 +24,7 @@ header {
 }
 
 form {
-  border: 3px solid #bae6fd;
+  border: 3px solid #0e7490;
   background-color: #f8fafc;
   border-radius: 5px;
   padding: 1.5rem 5rem;
@@ -34,6 +34,11 @@ form {
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem 2rem;
   align-items: center;
+  min-width: 45vw;
+}
+
+.pregametext {
+  margin: 1.5rem;
 }
 
 select {
@@ -46,6 +51,7 @@ select {
   grid-column: 2 / 4;
 }
 
+.pregametext,
 #formbtn {
   grid-column: 1 / 4;
 }
@@ -68,6 +74,12 @@ select {
 
 #random {
   margin: 1rem;
+}
+
+.result {
+  justify-self: center;
+  font-size: 2.5rem;
+  padding: 1rem;
 }
 
 .boards {
