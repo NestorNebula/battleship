@@ -93,6 +93,20 @@ export function Gameboard() {
     }
   };
 
+  const placeShipsRandomly = () => {
+    for (let i = 0; i < fleet.length; i++) {
+      let direction = 'horizontal';
+      const random = Math.round(Math.random());
+      if (random === 1) direction = 'vertical';
+      const result = placeShip(
+        Math.floor(Math.random() * 10),
+        Math.floor(Math.random() * 10),
+        direction
+      );
+      if (result !== true) i -= 1;
+    }
+  };
+
   const squaresEmpty = (coordinates) => {
     return coordinates.every(
       (square) => board[square[0]][square[1]].ship === null
@@ -126,6 +140,7 @@ export function Gameboard() {
     getBoard,
     getFleet,
     placeShip,
+    placeShipsRandomly,
     receiveAttack,
     fleetSunk,
   };
