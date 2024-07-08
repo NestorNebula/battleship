@@ -24,16 +24,6 @@ describe('Gameboard', () => {
     expect(board[9][3].ship).toBe(1);
   });
 
-  test('place ships on correct coordinates', () => {
-    const board = gameboard.getBoard();
-    gameboard.placeShips();
-    expect(board[0][4].ship).toBe(0);
-    expect(board[1][3].ship).toBe(1);
-    expect(board[2][2].ship).toBe(2);
-    expect(board[3][1].ship).toBe(3);
-    expect(board[4][0].ship).toBe(4);
-  });
-
   describe('receiveAttack', () => {
     test('return hit if the attack hits a ship', () => {
       expect(gameboard.receiveAttack([0, 1])).toMatch('hit');

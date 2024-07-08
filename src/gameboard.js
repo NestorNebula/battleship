@@ -93,26 +93,6 @@ export function Gameboard() {
     }
   };
 
-  const placeShips = () => {
-    const board = getBoard();
-    fleet.forEach((boat) => {
-      const shipLength = boat.ship.length;
-      const boatCoordinates = [];
-      for (let i = 0; i < shipLength; i++) {
-        if (boat.direction === 'horizontal') {
-          boatCoordinates.push([boat.coordinates[0], boat.coordinates[1] + i]);
-        } else {
-          boatCoordinates.push([boat.coordinates[0] + i, boat.coordinates[1]]);
-        }
-      }
-      if (squaresEmpty(boatCoordinates)) {
-        boatCoordinates.forEach((square) => {
-          board[square[0]][square[1]].ship = boat.id;
-        });
-      }
-    });
-  };
-
   const squaresEmpty = (coordinates) => {
     return coordinates.every(
       (square) => board[square[0]][square[1]].ship === null
@@ -146,7 +126,6 @@ export function Gameboard() {
     getBoard,
     getFleet,
     placeShip,
-    placeShips,
     receiveAttack,
     fleetSunk,
   };
