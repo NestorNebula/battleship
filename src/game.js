@@ -28,6 +28,8 @@ export function Game() {
         let id = Number(text.id);
         switch (id) {
           case 1:
+            const random = document.querySelector('#random');
+            random.remove();
             text.textContent += 'Second Ship (Size: 4)';
             break;
           case 2:
@@ -45,6 +47,8 @@ export function Game() {
         text.textContent += ' root coordinates and direction!';
         text.id = id += 1;
         if (id > 5) {
+          const pregame = document.querySelector('.pregame');
+          pregame.remove();
           computer.board.placeShipsRandomly();
           startGame();
         }
