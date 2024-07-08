@@ -51,6 +51,15 @@ export function Game() {
     });
   };
 
+  const getRandomPosition = () => {
+    const randomBtn = document.querySelector('#random');
+    randomBtn.addEventListener('click', () => {
+      player.board.placeShipsRandomly();
+      display.playerBoard(player.board.getBoard(), playerFleet);
+      startGame();
+    });
+  };
+
   const startGame = () => {
     waitMove();
   };
@@ -110,4 +119,5 @@ export function Game() {
   };
 
   getShipRoot();
+  getRandomPosition();
 }
