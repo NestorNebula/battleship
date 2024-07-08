@@ -11,8 +11,63 @@ body {
   display: grid;
 }
 
-.title {
+header {
+  justify-self: center;
   font-size: 3rem;
+  margin: 1rem;
+}
+
+.pregame {
+  display: grid;
+  justify-self: center;
+  font-size: 1.5rem;
+}
+
+form {
+  border: 3px solid #bae6fd;
+  background-color: #f8fafc;
+  border-radius: 5px;
+  padding: 1.5rem 5rem;
+  margin: 1.5rem;
+  justify-self: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem 2rem;
+  align-items: center;
+}
+
+select {
+  padding: 0.5rem;
+  border: 1px snow;
+  outline: 1px solid lightblue;
+}
+
+#direction {
+  grid-column: 2 / 4;
+}
+
+#formbtn {
+  grid-column: 1 / 4;
+}
+
+#formbtn,
+#random {
+  position: relative;
+  padding: 1.5rem;
+  outline: none;
+  background-color: #2564ebc6;
+  border: none;
+  border-radius: 10px;
+  justify-self: center;
+}
+
+#formbtn:active,
+#random:active {
+  top: 2px;
+}
+
+#random {
+  margin: 1rem;
 }
 
 .boards {
