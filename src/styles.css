@@ -22,6 +22,12 @@ body {
   text-align: center;
 }
 
+section {
+  position: absolute;
+  left: 30vw;
+  transition: all 0.5s;
+}
+
 .boardtitle,
 .opptitle {
   font-size: 1.5rem;
@@ -101,4 +107,9 @@ body {
 
 .hitsquare::after {
   content: 'O';
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
 }
