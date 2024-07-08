@@ -66,7 +66,35 @@ export function Displayboard() {
 
   const displayShipSquare = (element, square, fleet) => {
     element.classList.add('shipsquare');
+    const coordinates = fleet[square.ship].coordinates;
     if (fleet[square.ship].direction === 'horizontal') {
+      element.classList.add('horizontal');
+      if (
+        coordinates[0][0] === square.coordinates[0] &&
+        coordinates[0][1] === square.coordinates[1]
+      ) {
+        element.classList.add('horizontalroot');
+      } else if (
+        coordinates[coordinates.length - 1][0] === square.coordinates[0] &&
+        coordinates[coordinates.length - 1][1] === square.coordinates[1]
+      ) {
+        element.classList.add('horizontaltail');
+      }
+    } else {
+      element.classList.add('vertical');
+      if (
+        coordinates[0][0] === square.coordinates[0] &&
+        coordinates[0][1] === square.coordinates[1]
+      ) {
+        element.classList.add('verticalroot');
+      } else if (
+        coordinates[coordinates.length - 1][0] === square.coordinates[0] &&
+        coordinates[coordinates.length - 1][1] === square.coordinates[1]
+      ) {
+        element.classList.add('verticaltail');
+      }
+    }
+    /* if (fleet[square.ship].direction === 'horizontal') {
       element.classList.add('horizontal');
       if (
         fleet[square.ship].coordinates.toString() ===
@@ -82,7 +110,7 @@ export function Displayboard() {
       ) {
         element.classList.add('vshiproot');
       }
-    }
+    } */
   };
 
   return { playerBoard, opponentBoard };
