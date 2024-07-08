@@ -94,23 +94,6 @@ export function Displayboard() {
         element.classList.add('verticaltail');
       }
     }
-    /* if (fleet[square.ship].direction === 'horizontal') {
-      element.classList.add('horizontal');
-      if (
-        fleet[square.ship].coordinates.toString() ===
-        square.coordinates.toString()
-      ) {
-        element.classList.add('shiproot');
-      }
-    } else {
-      element.classList.add('vertical');
-      if (
-        fleet[square.ship].coordinates.toString() ===
-        square.coordinates.toString()
-      ) {
-        element.classList.add('vshiproot');
-      }
-    } */
   };
 
   return { playerBoard, opponentBoard };
