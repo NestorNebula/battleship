@@ -47,34 +47,30 @@ describe('Gameboard', () => {
 
   describe('isSunk', () => {
     const sunkTestGameboard = Gameboard();
-    sunkTestGameboard.placeShips();
-
-    sunkTestGameboard.receiveAttack([0, 0]);
-    sunkTestGameboard.receiveAttack([0, 1]);
-    sunkTestGameboard.receiveAttack([0, 2]);
-    sunkTestGameboard.receiveAttack([0, 3]);
-    sunkTestGameboard.receiveAttack([0, 4]);
+    const fleet = sunkTestGameboard.getFleet();
 
     test('return false if not all ships are sunk', () => {
+      fleet[0].ship.hit();
+      fleet[0].ship.hit();
+      fleet[0].ship.hit();
+      fleet[0].ship.hit();
+      fleet[0].ship.hit();
       expect(sunkTestGameboard.fleetSunk()).toBeFalsy();
     });
 
     test('return true if all ships are sunk', () => {
-      sunkTestGameboard.receiveAttack([1, 0]);
-      sunkTestGameboard.receiveAttack([1, 1]);
-      sunkTestGameboard.receiveAttack([1, 2]);
-      sunkTestGameboard.receiveAttack([1, 3]);
-
-      sunkTestGameboard.receiveAttack([2, 0]);
-      sunkTestGameboard.receiveAttack([2, 1]);
-      sunkTestGameboard.receiveAttack([2, 2]);
-
-      sunkTestGameboard.receiveAttack([3, 0]);
-      sunkTestGameboard.receiveAttack([3, 1]);
-      sunkTestGameboard.receiveAttack([3, 2]);
-
-      sunkTestGameboard.receiveAttack([4, 0]);
-      sunkTestGameboard.receiveAttack([4, 1]);
+      fleet[1].ship.hit();
+      fleet[1].ship.hit();
+      fleet[1].ship.hit();
+      fleet[1].ship.hit();
+      fleet[2].ship.hit();
+      fleet[2].ship.hit();
+      fleet[2].ship.hit();
+      fleet[3].ship.hit();
+      fleet[3].ship.hit();
+      fleet[3].ship.hit();
+      fleet[4].ship.hit();
+      fleet[4].ship.hit();
       expect(sunkTestGameboard.fleetSunk()).toBeTruthy();
     });
   });
