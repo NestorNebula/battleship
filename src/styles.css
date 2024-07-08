@@ -86,7 +86,6 @@ select {
   justify-self: center;
   padding: 2rem;
   display: flex;
-  gap: 2rem;
   text-align: center;
 }
 
@@ -118,7 +117,6 @@ section {
 .number {
   display: grid;
   font-size: 1.5rem;
-  width: var(--squaresize);
   height: var(--squaresize);
   align-content: center;
 }
