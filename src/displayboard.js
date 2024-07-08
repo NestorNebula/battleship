@@ -96,5 +96,10 @@ export function Displayboard() {
     }
   };
 
-  return { playerBoard, opponentBoard };
+  const hideBoard = (actualBoard, nextBoard) => {
+    actualBoard.classList.add('hidden');
+    nextBoard.classList.remove('hidden');
+  };
+
+  return { playerBoard, opponentBoard, hideBoard };
 }

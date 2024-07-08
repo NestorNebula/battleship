@@ -5,11 +5,13 @@ export function Game() {
   const player = new Player();
   const computer = new Computer();
   const display = Displayboard();
-
   const playerFleet = player.board.getFleet();
   const computerFleet = computer.board.getFleet();
   display.playerBoard(player.board.getBoard(), playerFleet);
   display.opponentBoard(computer.board.getBoard(), computerFleet);
+  const playerSection = document.querySelector('.player');
+  const computerSection = document.querySelector('.opp');
+  display.hideBoard(computerSection, playerSection);
 
   const getShipRoot = () => {
     const btn = document.querySelector('#formbtn');
@@ -68,6 +70,7 @@ export function Game() {
   const startGame = () => {
     const pregame = document.querySelector('.pregame');
     pregame.remove();
+    display.hideBoard(playerSection, computerSection);
     waitMove();
   };
 
@@ -82,10 +85,12 @@ export function Game() {
         if (computer.board.fleetSunk() === true) {
           endGame('Player');
         } else {
+          display.hideBoard(computerSection, playerSection);
           manageComputerTurn();
           if (player.board.fleetSunk() === true) {
             endGame('Computer');
           } else {
+            display.hideBoard(playerSection, computerSection);
             waitMove();
           }
         }
