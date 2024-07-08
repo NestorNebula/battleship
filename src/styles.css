@@ -2,6 +2,7 @@
 
 :root {
   font-size: 62.5%;
+  --shipborder: 2px solid #0e7490;
 }
 
 body {
@@ -60,25 +61,40 @@ body {
   height: 5rem;
   width: 5rem;
   background-color: white;
-  border: 1px solid black;
+  border: 0.5px solid black;
   padding: 0;
 }
 
 .shipsquare {
-  background-color: lightgray;
+  background-color: #e2e8f0;
   border: none;
 }
 
-.vshiproot,
 .horizontal {
-  border-top: 1px solid black;
+  border-top: var(--shipborder);
+  border-bottom: var(--shipborder);
 }
 
-.shiproot,
 .vertical {
-  border-left: 1px solid black;
+  border-left: var(--shipborder);
+  border-right: var(--shipborder);
 }
 
+.horizontalroot {
+  border-left: var(--shipborder);
+}
+
+.verticalroot {
+  border-top: var(--shipborder);
+}
+
+.horizontaltail {
+  border-right: var(--shipborder);
+}
+
+.verticaltail {
+  border-bottom: var(--shipborder);
+}
 .missedsquare::after {
   content: 'X';
 }
