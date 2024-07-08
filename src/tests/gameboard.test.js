@@ -27,7 +27,7 @@ describe('Gameboard', () => {
   test('place ships on random coordinates', () => {
     const randomGameboard = Gameboard();
     const randomFleet = randomGameboard.getFleet();
-    gameboard.placeShipsRandomly();
+    randomGameboard.placeShipsRandomly();
     expect(randomFleet[4].isPlaced).toBeTruthy();
   });
 
