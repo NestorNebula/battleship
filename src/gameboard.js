@@ -65,6 +65,14 @@ export function Gameboard() {
       if (shipId >= fleet.length) break;
       shipId += 1;
     }
+    if (
+      (direction === 'horizontal' &&
+        col + fleet[shipId].ship.length > board.length) ||
+      (direction === 'vertical' &&
+        row + fleet[shipId].ship.length > board.length)
+    ) {
+      return false;
+    }
     const shipCoordinates = [];
     for (let i = 0; i < fleet[shipId].ship.length; i++) {
       if (direction === 'horizontal') {
