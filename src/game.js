@@ -45,6 +45,7 @@ export function Game() {
         text.textContent += ' root coordinates and direction!';
         text.id = id += 1;
         if (id > 5) {
+          computer.board.placeShipsRandomly();
           startGame();
         }
       }
@@ -56,6 +57,7 @@ export function Game() {
     randomBtn.addEventListener('click', () => {
       player.board.placeShipsRandomly();
       display.playerBoard(player.board.getBoard(), playerFleet);
+      computer.board.placeShipsRandomly();
       startGame();
     });
   };
@@ -73,7 +75,7 @@ export function Game() {
         displAttackResult(result);
         display.opponentBoard(computer.board.getBoard());
         if (computer.board.fleetSunk() === true) {
-          endGame('You');
+          endGame('Player');
         } else {
           manageComputerTurn();
           if (player.board.fleetSunk() === true) {
