@@ -9,6 +9,7 @@
 body {
   padding: 1rem;
   display: grid;
+  background-color: #e0f2fe;
 }
 
 header {
@@ -25,7 +26,7 @@ header {
 
 form {
   border: 3px solid #0e7490;
-  background-color: #f8fafc;
+  background-color: #eff6ff;
   border-radius: 5px;
   padding: 1.5rem 5rem;
   margin: 1.5rem;
@@ -62,8 +63,9 @@ select {
   padding: 1.5rem;
   outline: none;
   background-color: #2564ebc6;
+  color: white;
   border: none;
-  border-radius: 10px;
+  border-radius: 7.5px;
   justify-self: center;
 }
 
