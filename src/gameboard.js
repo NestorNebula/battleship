@@ -84,8 +84,8 @@ export function Gameboard() {
     if (squaresEmpty(shipCoordinates)) {
       shipCoordinates.forEach((square) => {
         board[square[0]][square[1]].ship = shipId;
+        fleet[shipId].coordinates += [square];
       });
-      fleet[shipId].coordinates += [row, col];
       fleet[shipId].isPlaced = true;
       return true;
     } else {
