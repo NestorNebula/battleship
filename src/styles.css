@@ -228,6 +228,10 @@ section {
   section {
     left: 25vw;
   }
+
+  .player.endgame {
+    left: 3vw;
+  }
 }
 
 @media (max-width: 1000px) {
@@ -238,6 +242,15 @@ section {
   section {
     left: 20vw;
   }
+
+  .player.endgame {
+    left: 20vw;
+  }
+
+  .opp.endgame {
+    left: 20vw;
+    top: max(60vh, 70vw);
+  }
 }
 
 @media (max-width: 800px) {
@@ -247,5 +260,14 @@ section {
 
   section {
     left: 15vw;
+  }
+
+  .player.endgame {
+    left: 15vw;
+  }
+
+  .opp.endgame {
+    left: 15vw;
+    top: max(75vh, 90vw);
   }
 }
