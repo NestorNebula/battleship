@@ -121,14 +121,27 @@ export function Game() {
   };
 
   const manageComputerTurn = () => {
+    let tries = 0;
     while (true) {
-      const coordinates = computer.randomCoordinates();
+      let coordinates = undefined;
+      if (tries < 100) {
+        coordinates = computer.chooseSquare();
+      } else {
+        computer.lastHit = null;
+        coordinates = computer.randomCoordinates();
+      }
       const result = player.board.receiveAttack(coordinates);
       if (result !== false) {
+        if (result === 'hit') {
+          computer.lastHit = coordinates;
+        } else if (result === 'sunk') {
+          computer.lastHit = null;
+        }
         displAttackResult(result);
         display.playerBoard(player.board.getBoard(), player.board.getFleet());
         break;
       }
+      tries += 1;
     }
   };
 
