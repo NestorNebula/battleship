@@ -251,6 +251,10 @@ section {
   color: #ef4444;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 .hidden {
   visibility: hidden;
   max-height: 0;

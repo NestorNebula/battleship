@@ -38,7 +38,7 @@ export function Game() {
         switch (id) {
           case 1:
             const random = document.querySelector('#random');
-            random.remove();
+            random.classList.add('hidden');
             text.textContent += 'Second Ship (Size: 4)';
             break;
           case 2:
@@ -75,7 +75,7 @@ export function Game() {
 
   const startGame = () => {
     const pregame = document.querySelector('.pregame');
-    pregame.remove();
+    pregame.classList.add('hidden');
     helpContent.textContent =
       "Click on one of your opponent square to attack it. If an O appears, it means that you've hit one of his ship. If an X appears, it means that you didn't hit any ship.";
     display.hideBoard(playerSection, computerSection);
