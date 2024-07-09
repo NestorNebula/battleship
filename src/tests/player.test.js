@@ -23,19 +23,18 @@ describe('Computer', () => {
 
   test('chooseSquare returns a great square', () => {
     computer.lastHit = [4, 5];
-    //F5
     const choice = computer.chooseSquare();
-    let result = undefined;
+    let result = null;
     if (
-      choice.includes([3, 5]) ||
-      choice.includes([5, 5]) ||
-      choice.includes([4, 4]) ||
-      choice.includes([4, 6])
+      (choice[0] === 3 && choice[1] === 5) ||
+      (choice[0] === 5 && choice[1] === 5) ||
+      (choice[0] === 4 && choice[1] === 4) ||
+      (choice[0] === 4 && choice[1] === 6)
     ) {
       result = true;
     } else {
       result = false;
     }
-    expect(result).toBeTruthy;
+    expect(result).toBeTruthy();
   });
 });
