@@ -20,4 +20,22 @@ describe('Computer', () => {
     expect(coordinates[1]).toBeGreaterThanOrEqual(0);
     expect(coordinates[1]).toBeLessThan(10);
   });
+
+  test('chooseSquare returns a great square', () => {
+    computer.lastHit = [4, 5];
+    //F5
+    const choice = computer.chooseSquare();
+    let result = undefined;
+    if (
+      choice.includes([3, 5]) ||
+      choice.includes([5, 5]) ||
+      choice.includes([4, 4]) ||
+      choice.includes([4, 6])
+    ) {
+      result = true;
+    } else {
+      result = false;
+    }
+    expect(result).toBeTruthy;
+  });
 });
