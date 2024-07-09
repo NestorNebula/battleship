@@ -236,7 +236,7 @@ section {
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
   body {
     --squaresize: 4.5rem;
   }
