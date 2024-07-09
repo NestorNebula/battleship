@@ -80,6 +80,9 @@ export function Game() {
       square.addEventListener('click', () => {
         const coordinates = square.id.split('-');
         const result = computer.board.receiveAttack(coordinates);
+        if (result === false) {
+          return false;
+        }
         displAttackResult(result);
         display.opponentBoard(computer.board.getBoard(), computerFleet);
         if (computer.board.fleetSunk() === true) {
