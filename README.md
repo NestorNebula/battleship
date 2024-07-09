@@ -6,7 +6,7 @@ This project is my own version of the classic 'Battleship' game.
 
 ### Rules
 
-If you don't know the game's rules, you can find them [here](<https://en.wikipedia.org/wiki/Battleship_(game)>).
+If you don't know the game's rules, you can find them [here](<https://en.wikipedia.org/wiki/Battleship_(game)>). You can also find help in the app by clicking on 'Help'.
 
 The player can place five boards one by one or click on a button to place them randomly.
 
