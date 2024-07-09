@@ -42,6 +42,35 @@ header {
     sans-serif;
 }
 
+.helpsection {
+  position: absolute;
+  top: 3rem;
+  right: 5%;
+  padding: 1rem;
+  border-radius: 5px;
+  max-width: 33ch;
+  line-height: 1.5rem;
+  background-color: aliceblue;
+  color: black;
+}
+
+.help {
+  padding: 0.5rem 0;
+  font-size: 1.5rem;
+  background-color: inherit;
+  outline: none;
+  border: none;
+}
+
+.help:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.helpcontent.hidden {
+  max-width: 0;
+}
+
 .pregame {
   display: grid;
   justify-self: center;
@@ -224,6 +253,7 @@ section {
 
 .hidden {
   visibility: hidden;
+  max-height: 0;
   opacity: 0;
 }
 
