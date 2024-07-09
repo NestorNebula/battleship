@@ -151,6 +151,7 @@ export function Game() {
     winner === 'Player'
       ? playerSection.classList.remove('hidden')
       : computerSection.classList.remove('hidden');
+    display.playerBoard(computer.board.getBoard(), computerFleet, 'endgame');
     playerSection.classList.add('endgame');
     computerSection.classList.add('endgame');
   };

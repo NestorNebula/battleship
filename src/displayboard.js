@@ -1,6 +1,11 @@
 export function Displayboard() {
-  const playerBoard = (board, fleet) => {
-    const domBoard = document.querySelector('.boardsquares');
+  const playerBoard = (board, fleet, endgame = null) => {
+    let domBoard;
+    if (endgame) {
+      domBoard = document.querySelector('.oppboardsquares');
+    } else {
+      domBoard = document.querySelector('.boardsquares');
+    }
     domBoard.textContent = '';
     let rows = 0;
     board.forEach((row) => {
