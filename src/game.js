@@ -135,6 +135,11 @@ export function Game() {
   const endGame = (winner) => {
     const result = document.querySelector('.result');
     result.textContent = `The game is over! ${winner} wins !`;
+    winner === 'Player'
+      ? playerSection.classList.remove('hidden')
+      : computerSection.classList.remove('hidden');
+    playerSection.classList.add('endgame');
+    computerSection.classList.add('endgame');
   };
 
   getShipRoot();

@@ -173,6 +173,14 @@ section {
   content: 'X';
 }
 
+.player.endgame {
+  left: 7vw;
+}
+
+.opp.endgame {
+  left: 50vw;
+}
+
 .hitsquare::after {
   content: 'O';
 }
