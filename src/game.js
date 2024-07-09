@@ -1,5 +1,6 @@
 import { Player, Computer } from './player';
 import { Displayboard } from './displayboard';
+import { click } from '../node_modules/dropdown-clicked-hovered';
 
 export function Game() {
   const player = new Player();
@@ -12,6 +13,11 @@ export function Game() {
   const playerSection = document.querySelector('.player');
   const computerSection = document.querySelector('.opp');
   display.hideBoard(computerSection, playerSection);
+
+  const helpButton = document.querySelector('.help');
+  const helpContent = document.querySelector('.helpcontent');
+
+  click(helpButton, helpContent);
 
   const getShipRoot = () => {
     const btn = document.querySelector('#formbtn');
@@ -70,6 +76,8 @@ export function Game() {
   const startGame = () => {
     const pregame = document.querySelector('.pregame');
     pregame.remove();
+    helpContent.textContent =
+      "Click on one of your opponent square to attack it. If an O appears, it means that you've hit one of his ship. If an X appears, it means that you didn't hit any ship.";
     display.hideBoard(playerSection, computerSection);
     waitMove();
   };
