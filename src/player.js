@@ -48,27 +48,13 @@ class Computer extends Player {
           id: 4,
         });
       }
+      if (choices.length === 0) return false;
       let randomDirection = Math.floor(Math.random() * choices.length);
       let choice = choices[randomDirection];
-      console.log(choice.id);
-      console.log(
-        'Before',
-        this.lastHit.top,
-        this.lastHit.right,
-        this.lastHit.bottom,
-        this.lastHit.left
-      );
       if (choice.id === 1) this.lastHit.top = true;
       if (choice.id === 2) this.lastHit.bottom = true;
       if (choice.id === 3) this.lastHit.left = true;
       if (choice.id === 4) this.lastHit.right = true;
-      console.log(
-        'After',
-        this.lastHit.top,
-        this.lastHit.right,
-        this.lastHit.bottom,
-        this.lastHit.left
-      );
       return choice.possiblemove;
     }
   }

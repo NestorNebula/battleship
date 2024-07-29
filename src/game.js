@@ -129,22 +129,9 @@ export function Game() {
   };
 
   const manageComputerTurn = () => {
-    let tries = 0;
     while (true) {
-      console.log('Tries', tries);
       let coordinates = null;
-      if (tries < 4) {
-        coordinates = computer.chooseSquare();
-      } else {
-        if (computer.lastHit) {
-          if (computer.lastHit.previous) {
-            computer.lastHit = computer.lastHit.previous;
-          } else {
-            computer.lastHit = null;
-          }
-        }
-        tries = 0;
-      }
+      coordinates = computer.chooseSquare();
       if (coordinates) {
         const result = player.board.receiveAttack(coordinates);
         if (result !== false) {
@@ -161,7 +148,14 @@ export function Game() {
           display.playerBoard(player.board.getBoard(), player.board.getFleet());
           break;
         }
-        tries += 1;
+      } else {
+        if (computer.lastHit) {
+          if (computer.lastHit.previous) {
+            computer.lastHit = computer.lastHit.previous;
+          } else {
+            computer.lastHit = null;
+          }
+        }
       }
     }
   };
