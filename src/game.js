@@ -133,12 +133,13 @@ export function Game() {
       let coordinates = null;
       coordinates = computer.chooseSquare();
       if (coordinates) {
-        const result = player.board.receiveAttack(coordinates);
+        const result = player.board.receiveAttack(coordinates.choice);
         if (result !== false) {
           if (result === 'hit') {
-            const move = new ComputerMove(coordinates);
+            const move = new ComputerMove(coordinates.choice);
             if (computer.lastHit) {
               move.previous = computer.lastHit;
+              move.direction = coordinates.direction;
             }
             computer.lastHit = move;
           } else if (result === 'sunk') {
