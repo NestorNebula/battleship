@@ -24,23 +24,65 @@ class Computer extends Player {
         return this.randomCoordinates();
       }
       let choices = [];
-      if (this.lastHit[0] > 0) {
-        choices.push([this.lastHit[0] - 1, this.lastHit[1]]);
+      if (this.lastHit.move[0] > 0 && !this.lastHit.top) {
+        choices.push({
+          possiblemove: [this.lastHit.move[0] - 1, this.lastHit.move[1]],
+          id: 1,
+        });
       }
-      if (this.lastHit[0] < 9) {
-        choices.push([this.lastHit[0] + 1, this.lastHit[1]]);
+      if (this.lastHit.move[0] < 9 && !this.lastHit.bottom) {
+        choices.push({
+          possiblemove: [this.lastHit.move[0] + 1, this.lastHit.move[1]],
+          id: 2,
+        });
       }
-      if (this.lastHit[1] > 0) {
-        choices.push([this.lastHit[0], this.lastHit[1] - 1]);
+      if (this.lastHit.move[1] > 0 && !this.lastHit.left) {
+        choices.push({
+          possiblemove: [this.lastHit.move[0], this.lastHit.move[1] - 1],
+          id: 3,
+        });
       }
-      if (this.lastHit[1] < 9) {
-        choices.push([this.lastHit[0], this.lastHit[1] + 1]);
+      if (this.lastHit.move[1] < 9 && !this.lastHit.right) {
+        choices.push({
+          possiblemove: [this.lastHit.move[0], this.lastHit.move[1] + 1],
+          id: 4,
+        });
       }
       let randomDirection = Math.floor(Math.random() * choices.length);
       let choice = choices[randomDirection];
-      return choice;
+      console.log(choice.id);
+      console.log(
+        'Before',
+        this.lastHit.top,
+        this.lastHit.right,
+        this.lastHit.bottom,
+        this.lastHit.left
+      );
+      if (choice.id === 1) this.lastHit.top = true;
+      if (choice.id === 2) this.lastHit.bottom = true;
+      if (choice.id === 3) this.lastHit.left = true;
+      if (choice.id === 4) this.lastHit.right = true;
+      console.log(
+        'After',
+        this.lastHit.top,
+        this.lastHit.right,
+        this.lastHit.bottom,
+        this.lastHit.left
+      );
+      return choice.possiblemove;
     }
   }
 }
 
-export { Player, Computer };
+class ComputerMove {
+  constructor(move) {
+    this.move = move;
+    this.previous = null;
+    this.top = null;
+    this.right = null;
+    this.bottom = null;
+    this.left = null;
+  }
+}
+
+export { Player, Computer, ComputerMove };

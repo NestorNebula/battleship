@@ -1,4 +1,4 @@
-import { Player, Computer } from './player';
+import { Player, Computer, ComputerMove } from './player';
 import { Displayboard } from './displayboard';
 import { click } from '../node_modules/dropdown-clicked-hovered';
 
@@ -131,25 +131,38 @@ export function Game() {
   const manageComputerTurn = () => {
     let tries = 0;
     while (true) {
-      let coordinates = undefined;
-      if (tries < 100) {
+      console.log('Tries', tries);
+      let coordinates = null;
+      if (tries < 4) {
         coordinates = computer.chooseSquare();
       } else {
-        computer.lastHit = null;
-        coordinates = computer.randomCoordinates();
-      }
-      const result = player.board.receiveAttack(coordinates);
-      if (result !== false) {
-        if (result === 'hit') {
-          computer.lastHit = coordinates;
-        } else if (result === 'sunk') {
-          computer.lastHit = null;
+        if (computer.lastHit) {
+          if (computer.lastHit.previous) {
+            computer.lastHit = computer.lastHit.previous;
+          } else {
+            computer.lastHit = null;
+          }
         }
-        displAttackResult(result);
-        display.playerBoard(player.board.getBoard(), player.board.getFleet());
-        break;
+        tries = 0;
       }
-      tries += 1;
+      if (coordinates) {
+        const result = player.board.receiveAttack(coordinates);
+        if (result !== false) {
+          if (result === 'hit') {
+            const move = new ComputerMove(coordinates);
+            if (computer.lastHit) {
+              move.previous = computer.lastHit;
+            }
+            computer.lastHit = move;
+          } else if (result === 'sunk') {
+            computer.lastHit = null;
+          }
+          displAttackResult(result);
+          display.playerBoard(player.board.getBoard(), player.board.getFleet());
+          break;
+        }
+        tries += 1;
+      }
     }
   };
 
