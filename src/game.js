@@ -135,17 +135,37 @@ export function Game() {
       if (coordinates) {
         const result = player.board.receiveAttack(coordinates.choice);
         if (result !== false) {
-          if (result === 'hit') {
+          if (result.details === 'hit') {
             const move = new ComputerMove(coordinates.choice);
             if (computer.lastHit) {
               move.previous = computer.lastHit;
               move.direction = coordinates.direction;
             }
+            if (computer.hitships.length !== 0) {
+              if (computer.hitships.every((ship) => ship.id !== result.id)) {
+                computer.hitships.push({ id: result.id, lastMove: move });
+              } else {
+                computer.hitships.forEach((ship) =>
+                  ship.id === result.id ? (ship.lastMove = move) : null
+                );
+              }
+            } else {
+              computer.hitships.push({ id: result.id, lastMove: move });
+            }
             computer.lastHit = move;
-          } else if (result === 'sunk') {
-            computer.lastHit = null;
+          } else if (result.details === 'sunk') {
+            const filteredShips = computer.hitships.filter(
+              (ship) => ship.id !== result.id
+            );
+            computer.hitships = filteredShips;
+            if (computer.hitships.length !== 0) {
+              computer.hitships[0].lastMove.direction = null;
+              computer.lastHit = computer.hitships[0].lastMove;
+            } else {
+              computer.lastHit = null;
+            }
           }
-          displAttackResult(result);
+          displAttackResult(result.details);
           display.playerBoard(player.board.getBoard(), player.board.getFleet());
           break;
         }

@@ -10,6 +10,7 @@ class Computer extends Player {
   constructor() {
     super();
     this.lastHit = null;
+    this.hitships = [];
   }
 
   randomCoordinates() {
@@ -20,7 +21,10 @@ class Computer extends Player {
 
   chooseSquare() {
     while (true) {
-      if (this.lastHit) console.log(this.lastHit.direction);
+      if (this.lastHit) {
+        //console.log(this.lastHit);
+        //console.log(this.hitships);
+      }
       if (this.lastHit === null) {
         return this.randomCoordinates();
       }
@@ -78,7 +82,7 @@ class Computer extends Player {
       else if (choice.id === 4) this.lastHit.right = true;
       return {
         choice: choice.possiblemove,
-        direction: this.lastHit.position || choice.direction,
+        direction: this.lastHit.direction || choice.direction,
       };
     }
   }

@@ -124,13 +124,13 @@ export function Gameboard() {
       board[coordinates[0]][coordinates[1]].status = 'hit';
       fleet[shipId].ship.hit();
       if (fleet[shipId].ship.isSunk() === true) {
-        return 'sunk';
+        return { details: 'sunk', id: shipId };
       } else {
-        return 'hit';
+        return { details: 'hit', id: shipId };
       }
     } else {
       board[coordinates[0]][coordinates[1]].status = 'miss';
-      return 'miss';
+      return { details: 'miss' };
     }
   };
 
