@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+mxl" href="./icons/icon.svg" />
+  <title>Battleship</title>
+<link rel="icon" href="assets/favicon.svg"><script defer src="main.js"></script></head>
+
+<body>
+  <header>
+    <div class="title">Battleship</div>
+  </header>
+  <div class="helpsection">
+    <button class="help">Help</button>
+    <div class="helpcontent hidden">
+      To start the game, you can either place your ship one by one by
+      submitting the form or click on the 'Place Ships Randomly' button.
+    </div>
+  </div>
+  <div class="pregame">
+    <form>
+      <div id="1" class="pregametext">
+        Choose your First Ship (Size: 5) root coordinates and direction!
+      </div>
+      <label for="col">Root: </label>
+      <select name="col" id="col">
+        <option value="0">A</option>
+        <option value="1">B</option>
+        <option value="2">C</option>
+        <option value="3">D</option>
+        <option value="4">E</option>
+        <option value="5">F</option>
+        <option value="6">G</option>
+        <option value="7">H</option>
+        <option value="8">I</option>
+        <option value="9">J</option>
+      </select>
+      <select name="row" id="row">
+        <option value="0">1</option>
+        <option value="1">2</option>
+        <option value="2">3</option>
+        <option value="3">4</option>
+        <option value="4">5</option>
+        <option value="5">6</option>
+        <option value="6">7</option>
+        <option value="7">8</option>
+        <option value="8">9</option>
+        <option value="9">10</option>
+      </select>
+      <label for="direction">Direction: </label>
+      <select name="direction" id="direction">
+        <option value="horizontal">horizontal</option>
+        <option value="vertical">vertical</option>
+      </select>
+      <button type="button" id="formbtn">Submit</button>
+    </form>
+    <button id="random">Place ships randomly</button>
+  </div>
+  <div class="result"></div>
+  <div class="boards">
+    <section class="player">
+      <div class="boardtitle">Your Board</div>
+      <div class="board">
+        <div class="letters">
+          <div></div>
+          <div class="letter">A</div>
+          <div class="letter">B</div>
+          <div class="letter">C</div>
+          <div class="letter">D</div>
+          <div class="letter">E</div>
+          <div class="letter">F</div>
+          <div class="letter">G</div>
+          <div class="letter">H</div>
+          <div class="letter">I</div>
+          <div class="letter">J</div>
+        </div>
+        <div class="boardsquares"></div>
+      </div>
+    </section>
+    <section class="opp">
+      <div class="opptitle">Opponent's Board</div>
+      <div class="oppboard">
+        <div class="letters">
+          <div></div>
+          <div class="letter">A</div>
+          <div class="letter">B</div>
+          <div class="letter">C</div>
+          <div class="letter">D</div>
+          <div class="letter">E</div>
+          <div class="letter">F</div>
+          <div class="letter">G</div>
+          <div class="letter">H</div>
+          <div class="letter">I</div>
+          <div class="letter">J</div>
+        </div>
+        <div class="oppboardsquares"></div>
+      </div>
+    </section>
+  </div>
+</body>
+
+</html>
