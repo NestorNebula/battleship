@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -12,6 +13,7 @@ module.exports = {
       title: 'Battleship',
       template: './src/index.html',
     }),
+    new FaviconsWebpackPlugin('./src/icons/icon.svg'),
   ],
   output: {
     filename: 'main.js',
