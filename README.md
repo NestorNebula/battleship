@@ -54,10 +54,10 @@ Once the ship is sunk, it restarts the same process.
 
    ```
    # SSH:
-   git remote add upstream git@github.com:battleship/<repo name>.git
+   git remote add upstream git@github.com:NestorNebula/battleship.git
 
    # HTTPS:
-   git remote add upstream https://github.com/battleship/<repo name>.git
+   git remote add upstream https://github.com/NestorNebula/battleship.git
    ```
 
 4. Install required packages
